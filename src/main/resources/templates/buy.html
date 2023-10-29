@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Buy Tickets</title>
+    <link rel="stylesheet" th:href="@{/css/navbar.css}">
+    <link rel="stylesheet" th:href="@{/css/buy.css}">
+</head>
+<body style="background-image:url('/css/img/mainCreate.jpg');">
+<div th:replace="/fragments/navbars :: navbar-home">
+
+
+</div>
+           <div class=" container main-po">
+            <form method="post"  action="/pay">
+<!--                Information About The Amount To Be Paid-->
+                    <h3>Payment</h3>
+                   <h1>$[[${shoppingCart.totalPrice}]]</h1>
+<!--                Avilable Cards-->
+                    <h2>Accepted Cards</h2>
+                    <div  class="container icon-container"  id="d3" style="display:inline-block;" >
+                        <i class="fa fa-cc-visa" style="color:navy;" id="d3"></i>
+                        <i class="fa fa-cc-amex" style="color:blue;" id="d3"></i>
+                        <i class="fa fa-cc-mastercard" style="color:red;" id="d3"></i>
+                        <i class="fa fa-cc-discover" style="color:orange;" id="d3"></i>
+                    </div>
+                    <input type="hidden" id="price" name="price" value="10">
+<!--                Selecting The Currency To Pay-->
+                <div class="input-box">
+                <select class="form-select" id="currency" name="currency" aria-label="Default select example" >
+                    <option selected>Select Currency</option>
+                    <option value="USD">USD</option>
+                    <option value="	EUR">EUR</option>
+                    <option value="JPY">JPY</option>
+                    <option value="GBP">GBP</option>
+                    <option value="CNY">CNY</option>
+                    <option value="	AUD">AUD</option>
+                    <option value="CAD">CAD</option>
+                    <option value="CHF">CHF</option>
+                    <option value="HKD">HKD</option>
+                    <option value="	SGD">SGD</option>
+                    <option value="SEK">SEK</option>
+                    <option value="KRW">KRW</option>
+                </select>
+<!--                 Selecting Method-->
+                <select class="form-select" id="method" name="method" aria-label="Default select example" required>
+                    <option selected>Select Method</option>
+                    <option value="paypal">paypal</option>
+                </select>
+                </div>
+                    <input type="hidden" id="intent" name="intent" value="sale">
+                <div class="input-box">
+                    <textarea class="form-controll" id="description" name="description" placeholder="Payment Description" required></textarea>
+                </div>
+                <input type="submit" value="Buy Tickets"  class="btn">
+            </form>
+           </div>
+</body>
+</html>

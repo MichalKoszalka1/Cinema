@@ -1,0 +1,28 @@
+
+
+.input-emo i {
+color:#fff;
+align-items:center;
+justify-content:center;
+text-align:center;
+
+font-size:200px;
+}
+.wrap-page{
+margin-top:100px;
+background:#080808;
+color:#fff;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+.wrap-page h1{
+font-size:20px;
+}
+.wrap-page p{
+font-size:22px;
+}
+.wrap-page a {
+font-size:25px;
+}
+

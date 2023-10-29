@@ -1,0 +1,68 @@
+<!--Main NabBar-->
+
+<div th:fragment="navbar-home">
+<div class="nav">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <div class="d-inline-flex p-2">
+        <div class="box1">
+          <a class="navbar-brand"  th:href="@{/main}">Cinema-Team</a>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <div class="box">
+              <li class="nav-item">
+                <a class="nav-link"   th:href="@{/shoppingCart}" >My Tickets</a>
+              </li>
+            </div>
+            <div class="box">
+              <li class="nav-item">
+                <a class="nav-link"   th:href="@{/Favorite}" >View Favorite</a>
+              </li>
+            </div>
+            <li>
+
+              <form th:action="@{/search}">
+                <input type="text" name="keyword" th:value="${keyword}" style="border-color:white;border-width: 4px;border-style: inset;" class="form-group col-md-4" placeholder="Search By Title,Category And Spot" required/>
+                <br>
+                <button type="submit" value="Search" class="btn btn-success" title="Search" style="border-color:white;border-width: 4px;border-style: inset;">Search</button>
+                <button type="button" value="Clear" onclick="clearFilter()" class="btn btn-danger" title="Clear" style="border-color:white;border-width: 4px;border-style: inset;">Clear</button>
+              </form>
+
+            </li>
+            <div class="rig">
+              <form th:each="user: ${list}" method="post" enctype="multipart/form-data">
+                <li class="nav-item">
+                  <a class="nav-link">  <img  th:src="*{'data:picture/jpeg;base64,'+{user.file}}"  class="card-img-top" alt="user-image"
+                                              onerror="this.onerror=null; this.src='/css/img/noneUser.png'" style="width:80px; height:80px;"></a>
+                </li>
+              </form>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Account
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" th:href="@{/registration}" >registration</a></li>
+                  <li><a class="dropdown-item" th:href="@{/login}">login </a></li>
+                  <li><a class="dropdown-item" th:href="@{/createFilm}" sec:authorize="hasAnyAuthority('Admin')" >Create</a></li>
+                  <li><a class="dropdown-item" sec:authorize="hasAnyAuthority('User' , 'Admin')" th:href="@{/account}">account </a></li>
+                  <li><a class="dropdown-item" sec:authorize="hasAnyAuthority('User' , 'Admin')" th:href="@{/logout}">logout</a></li>
+                </ul>
+              </li>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+<script type="text/javascript">
+    function clearFilter() {
+       window.location = "[[@{/search}]]";
+    }
+</script>
+</div>
+

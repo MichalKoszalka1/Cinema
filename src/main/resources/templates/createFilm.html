@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Create-Film-Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" th:href="@{/css/navbar.css}">
+    <link th:href="@{/css/createFilm.css}" rel="stylesheet">
+
+</head>
+<body style="background-image:url('/css/img/mainCreate.jpg');">
+<div th:replace="/fragments/navbars :: navbar-home">
+
+
+</div>
+<div class="wrap1">
+<div class="wrap2">
+<div class="wrapper">
+<form th:action="@{/addP}" method="post" enctype="multipart/form-data" >
+<div class="input-box">
+    <h1 style="color:white;">Create Film</h1>
+</div>
+<!--   Film- Title-->
+    <div class="input-box">
+        <input type="text" name="title" class="form-controll"  placeholder="Film-Title" required minlength="1"
+              />
+        <i class='bx bxs-captions'></i>
+    </div>
+<!--   Film- Price-->
+    <div class="input-box">
+        <input type="text" class="form-controll"  name="price"  placeholder="$" required minlength="1"
+               maxlength="12"/>
+        <i class='bx bxs-purchase-tag-alt' ></i>
+    </div>
+
+
+    <div class="input-boxs">
+        <input type="hidden" class="form-controll"  name="category" required />
+      <div class="input-box">
+        <select id="category"  name="category" class="form-select" multiple aria-label="multiple select example">
+            <option disabled="disabled">Select Category</option>
+            <option >COMEDY</option>
+            <option >THRILLER </option>
+            <option >DRAMA</option>
+            <option> MELODRAMA</option>
+            <option>FANTASY FILM</option>
+            <option>CRIME</option>
+            <option>HORROR</option>
+            <option>ADVENTURE FILM</option>
+            <option>MUSICAL</option>
+            <option>COSTUME</option>
+            <option>CLOAK AND SWORDS</option>
+            <option>WAR</option>
+            <option>WESTERN</option>
+        </select>
+      </div>
+    </div>
+    <!--   Film- Place-->
+    <div class="input-box">
+        <input type="text" class="form-controll"  name="spot" placeholder="Choose Cinema" required minlength="1"
+               maxlength="24"/>
+        <i class='bx bxs-city'></i>
+    </div>
+    <!--   Film- Date-->
+    <div class="input-box">
+        <input type="date" class="form-controll"  name="date" required  />
+        <i class='bx bx-calendar'></i>
+    </div>
+    <!--   Start Time-->
+    <div class="input-box">
+        <input type="time" class="form-controll"  name="time" required   />
+        <i class='bx bxs-time' ></i>
+    </div>
+<!--    Movie Duration-->
+<div class="input-box">
+    <input type="text" class="form-controll"  name="duration" placeholder="Duration In Minutes" required minlength="1"
+           maxlength="4" />
+    <i class='bx bxs-timer' ></i>
+</div>
+    <!--    Available Tickets-->
+    <div class="input-box">
+        <input type="number" class="form-controll"  name="ticket" placeholder="Avilable Tickets" required minlength="1"
+               maxlength="3" />
+        <i class='bx bxs-coupon'></i>
+    </div>
+<!--    Image-->
+    <div class="fileUpload btn btn-primary">
+        <label class="upload">
+            <input type="file" name="file" >
+            Upload Image
+        </label>
+    </div>
+
+<!--Age-Information-->
+
+    <div class="m-3">
+        <div class="text-center">
+            <div class="form-check form-check-inline">
+                <br>
+                <b> <input  class="form-check-input" type="radio" name="age" id="inlineRadio1" value="6"></b>
+                <b>   <label class="form-check-label" for="inlineRadio1"><font style="color:white;">6+</font></label></b>
+            </div>
+
+            <div class="form-check form-check-inline">
+                <b> <input   class="form-check-input" type="radio" name="age" id="inlineRadio2" value="18"></b>
+                <b>  <label class="form-check-label" for="inlineRadio2"><font style="color:white;">18+</font></label></b>
+            </div>
+        </div>
+    </div>
+    <!--    Description-->
+    <div class="input-box">
+        <textarea class="form-controll" id="description" name="description" placeholder="Film Description" required>Film Description</textarea>
+    </div>
+
+    <button type="submit" class="btn btn-success" ><strong>Create A Film</strong></button>
+    <br><br>
+    <div class="back-link">
+        <p>Wanna Back?
+            <a th:href="@{/back}">Home</a>
+        </p>
+        </div>
+</form>
+</div></div></div>
+</body>
+</html>
+

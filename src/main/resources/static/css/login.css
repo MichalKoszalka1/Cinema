@@ -1,0 +1,100 @@
+.wrraper {
+border-radius:10px;
+padding:20px 40px;
+width:420px;
+margin-top:120px ;
+text-align:center;
+align-items:center;
+justify-content:center;
+background-image:url('/css/img/city.png');
+color:#fff;
+}
+
+.wrraper  h1{
+font-size:36px;
+background:transparent;
+text-align:center;
+}
+.wrraper .input-box{
+ position:relative;
+ width:100%;
+ height:50px;
+background:transparent;
+ margin:30px 0 ;
+}
+.wrraper .input-b{
+position:relative;
+width:100%;
+height:30px;
+margin:30px 0;
+}
+
+.input-box input{
+width:100%;
+height:100%;
+background:transparent;
+border:none;
+outline:none;
+border:2px solid rgba(255,255,255,.2);
+border-radius:40px;
+font-size:16px;
+color:#fff;
+padding:20px 45px 20px 20px;
+}
+.input-box  input::placeholder{
+color:#fff;
+}
+.input-b  i{
+position:absolute;
+left:-45px;
+font-size:50px;
+color:#4682B4;
+top:-20%;
+transform:translateY(-50%);
+}
+.input-box  i {
+position:absolute;
+right:20px;
+top:50%;
+transform:translateY(-50%);
+font-size:20px;
+}
+
+.wrraper  .btn{
+width:100%;
+height:45px;
+background:SteelBlue;
+border:none;
+outline:none;
+border-radius:40px;
+box-shadow:0 0 10px rgba(0, 0, 0, .1);
+cursor:pointer;
+font-size:16px;
+color: #fff;
+font-weight:600;
+}
+.wrraper .register-link{
+text-align:center;
+font-size:15px;
+color:fff;
+margin-top:20px ;
+}
+.register-link p a{
+color:#fff;
+font-weight:600;
+}
+.input-b p a {
+color: #fff;
+font-size:30px;
+}
+
+.wrraper .forgot{
+text-align:center;
+font-size:15px;
+margin-top:20px ;
+color:#fff;
+}
+.forgot p a {
+color:#fff;
+font-weight:600;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Account-Information</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" th:href="@{/css/navbar.css}">
+    <link rel="stylesheet" th:href="@{/css/account.css}">
+</head>
+<body  style="background-image:url('/css/img/create.jpg');" >
+<div th:replace="/fragments/navbars :: navbar-home">
+
+
+</div>
+<div class="container wrapper">
+    <div class=" container row">
+<!--        Display Acctual Profile And Possibility Of Change-->
+        <section th:each="user: ${list}" method="post" enctype="multipart/form-data">
+            <div class="container  account" >
+          <section th:each="profile : ${list}"  method="post" enctype="multipart/form-data">
+            <a th:href="@{/list/editProfile/{id}(id=${user.id})}">    <img  th:src="*{'data:picture/jpeg;base64,'+{user.file}}"  class="card-img-top" alt="user-image"
+                      onerror="this.onerror=null; this.src='/css/img/noneUser.png'"></a>
+                <br>
+          </section>
+                    <ul class="list-group list-group-flush">
+<!--                        Display Username-->
+                        <div class="info">
+                        <li class="list-group-item" th:text="${user.name}">   </li>
+                            <a th:href="@{/list/editUsername/{id}(id=${user.id})}">  <i class='bx bxs-user'  ></i></a>
+                        </div>
+<!--                        Display E-Mail-->
+                         <div class="info">
+                        <li class="list-group-item" th:text="${user.email}"></li>
+                        <i class='bx bxs-envelope' style="color:white" ></i>
+                        </div>
+                    </ul>
+<!--                Drop Account-->
+                <a th:href="@{/removeAccount/{id}(id = ${user.id})}" ><button type="submit" class="btn"  style="border-color:white;border-width: 4px;border-style: inset;">Drop Account</button></a>
+            </div>
+        </section>
+    </div>
+</div>
+</body>
+</html>

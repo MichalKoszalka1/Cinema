@@ -1,0 +1,47 @@
+
+
+.card{
+margin:30px auto;
+width:300px;
+text-align:center;
+height:600px;
+font-size:35px;
+color:#fff;
+ box-shadow:5px 5px 5px 5px blue;
+background:#000000;
+border-radius:40px;
+margin-left:80px;
+
+
+}
+
+.imgs{
+color:#fff;
+border-radius:40px;
+ box-shadow:6px 6px 6px 6px red;
+background:transparent;
+position:relative;
+font-size:20px;
+text-align:left;
+left:325px;
+max-width:1250px;
+}
+.imgs img{
+margin-top:10px;
+width:270px;
+height:300px;
+}
+.cent li{
+color:#fff;
+background:#080808;
+font-size:20px;
+text-align:center;
+}
+
+.card-body i {
+ text-align:center;
+ margin-left:5px;
+ justify-content:center;
+ align-items:center;
+ }
+

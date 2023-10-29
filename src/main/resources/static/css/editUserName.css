@@ -1,0 +1,58 @@
+.wrapper {
+border-radius:20px;
+padding:20px 40px;
+width:520px;
+margin:200px auto;
+text-align:center;
+background:#000000;
+box-shadow:6px 5px 5px 7px blue;
+color:#fff;
+}
+.wrapper h1 {
+border-radius:40px;
+font-size:31px;
+text-align:center;
+}
+.wrapper .input-box{
+position:relative;
+width:100%;
+color:#fff;
+height:50px;
+background:#080808;
+margin:30px 0;
+}
+.input-box input {
+ width:100%;
+ height:100%;
+ outline:none;
+ border:none;
+ background:transparent;
+ border:2px solid rgba(255,255,255, .2);
+ border-radius:40px;
+ font-size:25px;
+ color:#fff;
+ padding:20px 45px 20px 20px;
+ }
+ .input-box input::placeholder {
+ color:#fff;
+ }
+
+ .input-box  i {
+  position:absolute;
+  right:20px;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:20px;
+  }
+ .wrapper button {
+    position:relative;
+    width:65%;
+    height:50px;
+    background:#080808;
+     color:#fff;
+      padding:5px;
+    font-size:25px;
+
+    text-align:center;
+  border-radius:40px;
+   }

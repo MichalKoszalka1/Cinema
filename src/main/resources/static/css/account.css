@@ -1,0 +1,53 @@
+.account{
+margin:50px auto;
+text-align:center;
+background:#000000;
+width:450px;
+height:685px;
+border-radius:40px;
+box-shadow:6px 5px 5px 7px red;
+}
+
+    .account button{
+    background:#080808;
+    width:120px;
+    height:50px;
+    color: red;
+    padding:5px;
+    margin-top:10px;
+    font-size:15px
+
+}
+
+.account img{
+margin-top:15px;
+width:400px;
+height:400px;
+}
+
+.info li{
+margin-top:10px;
+border-radius:40px;
+background:#080808;
+color:#fff;
+font-size:25px;
+text-align:center;
+}
+.links{
+font-size:25px;
+
+}
+
+.info  i {
+position:absolute;
+right:20px;
+top:70%;
+transform:translateY(-50%);
+font-size:20px;
+}
+.wrapper .info{
+position:relative;
+width:100%;
+height:50px;
+margin:20px 0;
+}

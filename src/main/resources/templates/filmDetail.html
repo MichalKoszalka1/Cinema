@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Film Details</title>
+    <link rel="stylesheet" th:href="@{/css/navbar.css}">
+    <link rel="stylesheet" th:href="@{/css/details.css}" >
+</head>
+<body style="background-image:url('/css/img/create.jpg');">
+<div th:replace="/fragments/navbars :: navbar-home">
+
+
+</div>
+<div class=" select-all " >
+<section class=" section">
+    <!-- Detailed Information About The Film  -->
+    <div class="container" th:if="${film != null}">
+        <div class="image">
+            <img alt="Poster" width="300" height="450"  th:src="*{'data:image/jpeg;base64,'+{film.image}}" />
+        </div>
+        <div class="more">
+            <div class="genre">
+                <div th:text="${film.category}"></div>
+            </div>
+            <div class="title">
+                <div th:text="${film.title}"></div>
+            </div>
+            <div class="rating">
+                Date : &nbsp;
+                <span th:text="${film.date}" ></span>
+                <span class="separator"></span>
+
+                <span class="votes">&nbsp;Start Time:</span>
+                <span class="votes" th:text="${film.time}"></span>
+
+                <span class="separator"> </span>
+                &nbsp;Duration:
+                <span class="year" th:text=" ${film.duration + 'M'}" ></span>
+            </div>
+
+            <div class="overview">
+                <p class="tenth leading-relaxed" th:text="${film.description}"></p>
+            </div>
+
+            <div class="director">
+                <span class="drct">Price: &nbsp;</span>
+                <span th:text="${film.price + '$'}"></span>
+            </div>
+
+            <div class="actor">
+                <span class="star">Cinema: &nbsp;</span>
+                <span th:text="${film.spot}"></span>
+            </div>
+            <div class="lang">
+                <span class="language">Available For:  &nbsp;</span>
+                <span th:text="${film.age + '+'}"></span>
+            </div>
+
+            <div class="ticket">
+                <span class="available">Tickets Available:  &nbsp;</span>
+                <span th:text="${film.ticket }"></span>
+            </div>
+
+            <!-- buttons -->
+            <div class="button-container">
+<!--               Add To Favorite-->
+                <form th:action="@{/addFilmToFavorite}" method="post" >
+                    <button   sec:authorize="hasAnyAuthority('User' , 'Admin')" type="submit" class="button-primary">Favorite</button>
+                    <input type="hidden" name="id" th:value="${film.id}" />
+                    <br>
+
+                </form>
+
+                  <div class="inp">
+<!--                      Add To Shopping Cart&ndash;&gt;-->
+                    <form th:action="@{/addToCart}" method="post" >
+                        <button  sec:authorize="hasAnyAuthority('User' , 'Admin')"  type="submit" class="button-primary">Buy Ticket</button>
+                        <input type="hidden" name="id" th:value="${film.id}" />
+
+<!--                        Selecting tThe Number Of Tickets-->
+                         <br>
+                        <input  sec:authorize="hasAnyAuthority('User' , 'Admin')" type="number" min="1" value="1"   th:attr="max=${film.ticket}" name="ticket"
+                               class="form-control  " placeholder="Amount of tickets" />
+                    </form>
+                  </div>
+                      <a th:href="@{/return}" style="color:black"><button type="submit"  class="button-primary">Return</button></a>
+<!--                Funcion Remove Only For Admin-->
+                   <a  sec:authorize="hasAnyAuthority('Admin')"  th:href="@{/removeFilm/{id}(id = ${film.id})}"
+                       style="color:black"><button type="submit"  class="button-primary">Remove</button></a>
+        </div>
+        </div>
+    </div>
+</section>
+</div>
+</body>
+</html>
